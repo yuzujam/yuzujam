@@ -3,6 +3,8 @@
 Honeypot observation, data integrity and time-series analysis.
 ハニーポットの長期観測と、「欠損を隠さない」データ完全性の研究・開発。
 
+**まず見てほしいもの:** 2拠点・90日のハニーポット観測基盤を自分で設計・運用し、「観測できなかった期間」を隠さず定量的に開示する仕組みを作りました。結果だけでなく、反証された仮説や限界も同じ重さで書いています。詳細は下の Featured project から。
+
 ## Featured project
 
 **[self-proving-observation](https://github.com/yuzujam/self-proving-observation)**: a two-site, 90-day honeypot observation platform in which every site sends a one-minute heartbeat, and observation gaps are recorded and disclosed instead of hidden.
@@ -21,6 +23,13 @@ Honeypot observation, data integrity and time-series analysis.
 | Code | [10.5281/zenodo.23178244](https://doi.org/10.5281/zenodo.23178244) |
 
 The write-up states its limits as plainly as its results: there are only two sites, the controlled experiment covers the ingest layer onward, the raw logs could not be kept, and the periodicity analysis found no cycle. A journal version is under review.
+
+## Where to look
+
+- 設計と結果を読む: [README（日本語・English summary）](https://github.com/yuzujam/self-proving-observation#readme)
+- 限界を読む: [限界（隠さずに書く）](https://github.com/yuzujam/self-proving-observation#限界隠さずに書く)
+- コードを見る: [`src/`](https://github.com/yuzujam/self-proving-observation/tree/main/src) と [`tests/`](https://github.com/yuzujam/self-proving-observation/tree/main/tests)
+- 論文で確認する: [プレプリント](https://doi.org/10.5281/zenodo.23177927)
 
 ## What I work with
 
