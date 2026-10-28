@@ -3,7 +3,7 @@
 Honeypot observation, data integrity and time-series analysis.
 ハニーポットの長期観測と、「欠損を隠さない」データ完全性の研究・開発。
 
-**まず見てほしいもの:** 2拠点・90日のハニーポット観測基盤を自分で設計・運用し、「観測できなかった期間」を隠さず定量的に開示する仕組みを作りました。結果だけでなく、反証された仮説や限界も同じ重さで書いています。詳細は下の Featured project から。
+**まず見てほしいもの:** 2拠点・90日のハニーポット観測基盤を自分で設計・運用し、「観測できなかった期間」を隠さず定量的に開示する仕組みを作りました。結果だけでなく、反証された仮説や、結果が頑健でない点（保守ジョブとの重なり、認証のない受付）も同じ重さで書いています。詳細は下の Featured project から。
 
 ## Featured project
 
@@ -16,13 +16,14 @@ Honeypot observation, data integrity and time-series analysis.
 | | |
 |---|---|
 | Observation | 2 sites, 90 days (2026-07-02 to 2026-09-30) |
-| Heartbeat coverage | 99.9853% (central), 99.9830% (edge); every gap is listed |
-| Loss outside the heartbeat | 11,495 rows (0.0318%) lost in the backup path, found by hand and disclosed |
-| Comparison with T-Pot/ELK | 1 of 20 conditions significant after correction; never worse in any batch; small effect |
+| Heartbeat coverage | 99.9853% (central), 99.9830% (edge). Gaps that were found are reported, not excluded or corrected. Read as an upper bound: the ingest endpoints were unauthenticated, so forged heartbeats cannot be ruled out |
+| Loss outside the heartbeat | 11,495 rows (0.0318% of 36,147,106) lost in the backup path after ingestion, 98.6% of them on eight days in late July; found after the observation, cause unidentified, disclosed |
+| Comparison with T-Pot/ELK | 1 of 20 conditions significant after correction (ramp, 5,000 RPS); never worse in any batch; negligible-to-small effect. Not robust: baseline losses cluster within 30 minutes after a four-hourly maintenance job, and no condition stays significant once trials with 50% or more baseline loss are removed |
+| Drift detection | The hypothesis "SHAP changes lead accuracy drops" was refuted. The detector works as a confirming indicator (91.2-96.2% confirmed detection, n=80, synthetic series only) |
 | Preprint | [10.5281/zenodo.23177927](https://doi.org/10.5281/zenodo.23177927) |
 | Code | [10.5281/zenodo.23178244](https://doi.org/10.5281/zenodo.23178244) |
 
-The write-up states its limits as plainly as its results: there are only two sites, the controlled experiment covers the ingest layer onward, the raw logs could not be kept, and the periodicity analysis found no cycle. A journal version is under review.
+The write-up states its limits as plainly as its results: only two sites; drift detection validated on synthetic series (one exploratory real-data case, where the control also fired); no periodicity found (absence of evidence at this scale, not evidence of absence); no continuous 90-day resource record; the controlled experiment covers the ingest layer onward; and the raw logs could not be kept.
 
 ## Where to look
 
