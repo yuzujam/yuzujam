@@ -23,7 +23,7 @@ Honeypot observation, data integrity and time-series analysis.
 | Preprint | [10.5281/zenodo.23177927](https://doi.org/10.5281/zenodo.23177927) |
 | Code | [10.5281/zenodo.23178244](https://doi.org/10.5281/zenodo.23178244) |
 
-The write-up states its limits as plainly as its results: only two sites; drift detection validated on synthetic series (one exploratory real-data case, where the control also fired); no periodicity found (absence of evidence at this scale, not evidence of absence); no continuous 90-day resource record; the controlled experiment covers the ingest layer onward; and the raw logs could not be kept.
+The write-up states its limits as plainly as its results: only two sites; drift detection validated on synthetic series (one exploratory real-data case, where the control also fired); no periodicity found (absence of evidence at this scale, not evidence of absence); no continuous 90-day resource record; the controlled experiment covers the ingest layer onward; and the raw logs could not be kept. A journal version is under review.
 
 ## Where to look
 
